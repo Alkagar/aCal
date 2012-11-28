@@ -1,0 +1,6 @@
+.gitignore
+assets
+system/runtime
+system/yiic.php
+.htaccess
+system/data/acalendar.db
