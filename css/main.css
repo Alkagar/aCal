@@ -1,0 +1,18 @@
+body { font-size:12px; font-family:verdana; }
+
+
+
+
+/* ## forms ## */
+input[type="text"] { width: 150px font-size:12px; font-family:verdana; border:1px solid #000000; }
+input[type="password"] { width: 150px font-size:12px; font-family:verdana; border:1px solid #000000; }
+input[type="submit"] { padding:5px 35px; }
+.form { margin:10px; }
+.form .row { display:table-row; }
+.form .form-error { padding-left:10px; color:#FF0000; display:inline; font-style:italic; }
+.form .form-cell { height:25px; vertical-align:middle; display:table-cell; }
+.form .form-cell.form-label { width:100px; }
+.form .form-cell .form-label { width:100px; }
+.form .form-buttons { padding:5px; }
+
+/* ## forms end ## */

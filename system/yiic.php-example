@@ -1,0 +1,4 @@
+<?php
+$yiic = '/home/alkagar/repos/yii-1.1.10/framework/yiic.php';
+$config = dirname(__FILE__).'/config/console-aquila.php';
+require_once($yiic);
