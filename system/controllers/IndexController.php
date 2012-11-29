@@ -15,7 +15,8 @@
         */
         public function actionLogin()
         { 
-            $form = new FormLogin();
+            $form = new FormUser();
+            $form->setScenario('login');
             $formName = get_class($form);
 
             // if it is ajax validation request
@@ -40,6 +41,42 @@
         }
 
         /**
+        * Displays the register page
+        */
+        public function actionRegister()
+        { 
+            $form = new FormUser();
+            $form->setScenario('register');
+            $formName = get_class($form);
+
+            if(isset($_POST['ajax']) && $_POST['ajax'] === $formName) {
+                echo CActiveForm::validate($model);
+                Yii::app()->end();
+            }
+
+            if(isset($_POST[$formName])) {
+                $form->attributes = $_POST[$formName];
+                if($form->validate()) {
+                    $user = new User();
+                    $user->attributes = $_POST[$formName];
+                    $user->password = sha1($form->password);
+                    if($user->save()) {
+                        $this->redirect('/login');
+                    } else {
+                        Yii::app()->user->setFlash('notice', 'error.forms.cant-save-user');
+                    }
+
+                }
+            }
+            $this->render('register', array(
+                'form' => $form,
+                'formName' => $formName,
+            ));
+        }
+
+
+
+        /**
         * Logs out the current user and redirect to homepage.
         */
         public function actionLogout()
@@ -55,5 +92,10 @@
         {
             if($error=Yii::app()->errorHandler->error)
             $this->render('error', $error);
+        }
+
+        public function actionHelp() 
+        { 
+            $this->render('help');
         }
     }

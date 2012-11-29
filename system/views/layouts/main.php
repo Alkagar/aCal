@@ -11,9 +11,12 @@
         <!--<script type="text/javascript" src="js/"></script>!-->
     </head>
     <body>
-        <?php echo $content; ?>
-        <br />
-        <hr />
-        <br />
+        <div id='page'>
+            <div class='header'>
+                <?php AMenu::render(); ?>
+                <hr />
+            </div>
+            <?php echo $content; ?>
+        </div> <!-- page !-->
     </body>
 </html>

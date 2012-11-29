@@ -8,18 +8,22 @@
         'defaultController' => 'index',
         'name'=>'aCalendar',
         'preload'=>array('log'),
+
+        'sourceLanguage'=>'00',
+        'language'=>'en',
+
         'import'=>array(
             'application.models.*',
             'application.forms.*',
             'application.components.*',
+            'application.components.helpers.*',
         ),
         'modules'=>array(
-            
             'gii'=>array(
                 'class'=>'system.gii.GiiModule',
                 'password'=>'pharazon',
             ),
-            ),
+        ),
         'components'=>array(
             'user'=>array(
                 'allowAutoLogin' => true,
@@ -30,6 +34,10 @@
                 'showScriptName' => false,
                 'rules'          => array(
                     'login' => 'index/login',
+                    'help' => 'index/help',
+                    'home' => 'index/index',
+                    'logout' => 'index/logout',
+                    'register' => 'index/register',
                     '<controller:\w+>/<action:\w+>/*'        => '<controller>/<action>',
                 ),
             ),
@@ -54,14 +62,32 @@
                         'class'=>'CFileLogRoute',
                         'levels'=>'error, warning',
                     ),
-                    array(
-                        'class'=>'CWebLogRoute',
-                    ),
+                    //array(
+                        //'class'=>'CWebLogRoute',
+                    //),
                 ),
             ),
         ),
         // using Yii::app()->params['paramName']
         'params'=>array(
             'adminEmail'=>'jakub@mrowiec.org',
+            'menu' => array(
+                'guest' => array(
+                    'menu.home' => '/home',
+                    'menu.help' => '/help',
+                    'menu.login' => '/login',
+                    'menu.register' => '/register',
+                ),
+                'user' => array(
+                    'menu.home' => '/home',
+                    'menu.help' => '/help',
+                    'menu.logout' => '/logout',
+
+                    'menu.tasks' => '/tasks/list',
+                    'menu.task-add' => '/tasks/add', 
+                    'menu.types' => '/types/list',
+                    'menu.type-add' => '/types/add',
+                ),
+            ),
         ),
     );

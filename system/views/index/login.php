@@ -40,7 +40,7 @@
     </div>
 
     <div class="form-buttons">
-        <?php echo CHtml::submitButton('Login'); ?>
+        <?php echo CHtml::submitButton(Yii::t('app', 'forms.login')); ?>
     </div>
 
     <?php $this->endWidget(); ?>

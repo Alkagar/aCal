@@ -1,4 +1,8 @@
 body { font-size:12px; font-family:verdana; }
+#page { width:600px; margin-left:auto; margin-right:auto; margin-top:20px; }
+
+a { color:#FF6303; text-decoration:none; }
+a:hover { text-decoration:underline; }
 
 
 
@@ -16,3 +20,8 @@ input[type="submit"] { padding:5px 35px; }
 .form .form-buttons { padding:5px; }
 
 /* ## forms end ## */
+
+
+/* ## common box ## */
+.notice { width:50%; padding:15px; background-color:#FFE72E; border:1px solid #FF6303; }
+/* ## common box end ## */

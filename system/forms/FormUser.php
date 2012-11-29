@@ -1,31 +1,32 @@
 <?php
 
-    /**
-    * LoginForm class.
-    * LoginForm is the data structure for keeping user login form data. 
-    */
-    class FormLogin extends CFormModel
+    class FormUser extends CFormModel
     {
         public $login;
         public $password;
         public $rememberMe;
+        public $email;
+        public $password2;
+        public $first_name;
+        public $surname;
 
         private $_identity;
 
-        /**
-        * Declares the validation rules.
-        * The rules state that login and password are required,
-        * and password needs to be authenticated.
-        */
         public function rules()
         {
             return array(
                 // login and password are required
                 array('login, password', 'required'),
-                // rememberMe needs to be a boolean
+                array('email', 'email'),
                 array('rememberMe', 'boolean'),
-                // password needs to be authenticated
-                array('password', 'authenticate'),
+
+                array('password', 'authenticate', 'on' => 'login'),
+
+                array('password2, email, first_name, surname', 'required', 'on' => 'register'),
+                array('login', 'unique', 'attributeName'=> 'login', 'on' => 'register', 'className' => 'User'),
+                array('email', 'unique', 'attributeName'=> 'email', 'on' => 'register', 'className' => 'User'),
+                array('password', 'compare', 'compareAttribute' => 'password2', 'on' => 'register'),
+
             );
         }
 

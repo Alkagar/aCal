@@ -18,6 +18,9 @@
                 array('login, password', 'required'),
                 array('login, password, first_name, surname, email', 'length', 'max' => 60),
                 array('id, login, password, first_name, surname, email', 'safe', 'on' => 'search'),
+
+                array('created_at','default', 'value'=>date('Y-m-d H:i:s'), 'setOnEmpty'=>false,'on'=>'update'),
+                array('created_at,modified_at','default', 'value'=>date('Y-m-d H:i:s'), 'setOnEmpty'=>false,'on'=>'insert')
             );
         }
 
