@@ -19,11 +19,7 @@
             $form->setScenario('login');
             $formName = get_class($form);
 
-            // if it is ajax validation request
-            if(isset($_POST['ajax']) && $_POST['ajax'] === $formName) {
-                echo CActiveForm::validate($model);
-                Yii::app()->end();
-            }
+            $this->_validateAjax($form, $formName);
 
             // collect user input data
             if(isset($_POST[$formName])) {
@@ -49,10 +45,7 @@
             $form->setScenario('register');
             $formName = get_class($form);
 
-            if(isset($_POST['ajax']) && $_POST['ajax'] === $formName) {
-                echo CActiveForm::validate($model);
-                Yii::app()->end();
-            }
+            $this->_validateAjax($form, $formName);
 
             if(isset($_POST[$formName])) {
                 $form->attributes = $_POST[$formName];
@@ -65,7 +58,6 @@
                     } else {
                         Yii::app()->user->setFlash('notice', 'error.forms.cant-save-user');
                     }
-
                 }
             }
             $this->render('register', array(
@@ -73,8 +65,6 @@
                 'formName' => $formName,
             ));
         }
-
-
 
         /**
         * Logs out the current user and redirect to homepage.

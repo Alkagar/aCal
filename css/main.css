@@ -1,17 +1,15 @@
 body { font-size:12px; font-family:verdana; }
 #page { width:600px; margin-left:auto; margin-right:auto; margin-top:20px; }
 p { text-align:justify; }
-h1 { font-size:200%; font-weight:bolder; margin-bottom:10px; border-bottom:2px solid #FF6303; color:#FF6303; }
+h1, h2 { font-size:200%; font-weight:bolder; margin-bottom:10px; border-bottom:2px solid #FF6303; color:#FF6303; }
 
 a { color:#FF6303; text-decoration:none; }
 a:hover { text-decoration:underline; }
 
-
-
-
 /* ## forms ## */
-input[type="text"] { width: 150px font-size:12px; font-family:verdana; border:1px solid #000000; }
-input[type="password"] { width: 150px font-size:12px; font-family:verdana; border:1px solid #000000; }
+input[type="text"] { width: 150px; font-size:12px; font-family:verdana; border:1px solid #000000;  background-color:#FFFFFF;}
+input[type="password"] { width: 150px; font-size:12px; font-family:verdana; border:1px solid #000000;  background-color:#FFFFFF;}
+select { width: 150px; font-size:12px; font-family:verdana; border:1px solid #000000; background-color:#FFFFFF;}
 input[type="submit"] { padding:5px 35px; }
 .form { margin:10px; }
 .form .row { display:table-row; }

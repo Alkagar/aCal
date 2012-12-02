@@ -9,4 +9,12 @@
             Yii::app()->setLanguage('en'); 
 
         }
+
+        protected function _validateAjax($form, $formName) 
+        {
+            if(isset($_POST['ajax']) && $_POST['ajax'] === $formName) {
+                echo CActiveForm::validate($form);
+                Yii::app()->end();
+            }
+        }
     }
