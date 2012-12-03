@@ -58,6 +58,7 @@
     </div>
 
     <div id='dynamic-form'>
+        <?php $this->renderPartial('form-specific-types', array('typeAttributes' => $typeAttributes)); ?>
     </div>
 
     <div class="form-buttons">

@@ -29,6 +29,34 @@
             ));
         }
 
+        public function actionEdit($id)
+        { 
+            $form = new FormTypeAttribute();
+            $form->setScenario('add');
+            $formName = get_class($form);
+            $typeAttribute = TypeAttribute::model()->findByPk($id);
+
+            $this->_validateAjax($form, $formName);
+
+            if(isset($_POST[$formName])) {
+                $form->attributes = $_POST[$formName];
+                if($form->validate()) {
+                    $typeAttribute->attributes = $_POST[$formName];
+                    if($typeAttribute->save()) {
+                        $this->redirect('/taskType');
+                    } else {
+                        Yii::app()->user->setFlash('notice', 'error.forms.cant-save');
+                    }
+                }
+            } else {
+                $form->attributes = $typeAttribute->attributes;
+                }
+            $this->render('add', array(
+                'form' => $form,
+                'formName' => $formName,
+            ));
+        }
+
         public function actionDelete($id)
         {
             $typeAttribute = TypeAttribute::model()->findByPk($id);

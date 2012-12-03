@@ -53,6 +53,7 @@ class TaskAttribute extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+                    'attributeType' => array(self::BELONGS_TO, 'TypeAttribute', 'task_type_id'),
 		);
 	}
 

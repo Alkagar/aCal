@@ -83,7 +83,7 @@
                     'menu.help' => '/help',
                     'menu.logout' => '/logout',
 
-                    'menu.tasks' => '/task/list',
+                    'menu.tasks' => '/task',
                     'menu.task-add' => '/task/add', 
                     'menu.types' => '/taskType',
                     'menu.type-add' => '/taskType/add',

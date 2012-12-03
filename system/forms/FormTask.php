@@ -16,7 +16,7 @@
         public function rules()
         {
             return array(
-                array('name, user_id, task_type_id', 'required'),
+                array('name, task_type_id', 'required'),
                 array('user_id, task_type_id', 'numerical', 'integerOnly'=>true),
                 array('name, duration, begin, end', 'length', 'max'=>60),
                 array('description', 'safe'),

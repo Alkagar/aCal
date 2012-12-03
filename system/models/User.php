@@ -26,7 +26,9 @@
 
         public function relations()
         {
-            return array();
+            return array(
+                'tasks' => array(self::HAS_MANY, 'Task', 'user_id'), 
+            );
         }
 
         /**

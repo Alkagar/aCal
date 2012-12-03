@@ -23,8 +23,7 @@
             );
         }
 
-        public function relations()
-        {
+        public function relations() {
             return array();
         }
 

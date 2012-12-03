@@ -2,8 +2,11 @@ body { font-size:12px; font-family:verdana; }
 #page { width:600px; margin-left:auto; margin-right:auto; margin-top:20px; }
 p { text-align:justify; }
 h1, h2 { font-size:200%; font-weight:bolder; margin-bottom:10px; border-bottom:2px solid #FF6303; color:#FF6303; }
+strong { font-weight:bold; }
+
 
 a { color:#FF6303; text-decoration:none; }
+
 a:hover { text-decoration:underline; }
 
 /* ## forms ## */

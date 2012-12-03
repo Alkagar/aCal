@@ -2,6 +2,8 @@
 
     class AUserIdentity extends CUserIdentity
     {
+        private $_id;
+
         /**
         * Authenticates a user.
         * @return boolean whether authentication succeeds.
@@ -20,7 +22,15 @@
                 $this->errorCode = self::ERROR_PASSWORD_INVALID;
             } else {
                 $this->errorCode = self::ERROR_NONE;
+                $this->_id = $user->id;
+                $this->setState('data', $user);
+
             }
             return !$this->errorCode;
+        }
+
+        public function getId()
+        {
+            return $this->_id;
         }
     }
