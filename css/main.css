@@ -5,6 +5,39 @@ h1, h2 { font-size:200%; font-weight:bolder; margin-bottom:10px; border-bottom:2
 strong { font-weight:bold; }
 
 
+.icon {background: url(../gfx/icons-16-black.png) no-repeat top left; display:inline-block;}
+.icon:hover {background: url(../gfx/icons-16-orange.png) no-repeat top left; display:inline-block;}
+.icon.ico-alert{ background-position: 0 0; width: 16px; height: 16px; } 
+.icon.ico-bell{ background-position: 0 -26px; width: 16px; height: 16px; } 
+.icon.ico-calc{ background-position: 0 -52px; width: 16px; height: 16px; } 
+.icon.ico-calendar{ background-position: 0 -78px; width: 16px; height: 16px; } 
+.icon.ico-checkbox-checked{ background-position: 0 -104px; width: 16px; height: 16px; } 
+.icon.ico-checkbox-unchecked{ background-position: 0 -130px; width: 16px; height: 16px; } 
+.icon.ico-checkmark{ background-position: 0 -156px; width: 16px; height: 16px; } 
+.icon.ico-delete{ background-position: 0 -182px; width: 16px; height: 16px; } 
+.icon.ico-info{ background-position: 0 -208px; width: 16px; height: 16px; } 
+.icon.ico-notepad{ background-position: 0 -234px; width: 16px; height: 16px; } 
+.icon.ico-padlock-closed{ background-position: 0 -260px; width: 16px; height: 16px; } 
+.icon.ico-padlock-open{ background-position: 0 -286px; width: 16px; height: 16px; } 
+.icon.ico-round-arrow-left{ background-position: 0 -312px; width: 16px; height: 16px; } 
+.icon.ico-round-arrow-right{ background-position: 0 -338px; width: 16px; height: 16px; } 
+.icon.ico-round-checkmark{ background-position: 0 -364px; width: 16px; height: 16px; } 
+.icon.ico-round-delete{ background-position: 0 -390px; width: 16px; height: 16px; } 
+.icon.ico-round-down{ background-position: 0 -416px; width: 16px; height: 16px; } 
+.icon.ico-round-minus{ background-position: 0 -442px; width: 16px; height: 16px; } 
+.icon.ico-round-next{ background-position: 0 -468px; width: 16px; height: 16px; } 
+.icon.ico-round-plus{ background-position: 0 -494px; width: 16px; height: 16px; } 
+.icon.ico-round-prev{ background-position: 0 -520px; width: 16px; height: 16px; } 
+.icon.ico-round-up-arrow{ background-position: 0 -546px; width: 16px; height: 16px; } 
+.icon.ico-round-up{ background-position: 0 -572px; width: 16px; height: 16px; } 
+.icon.ico-round{ background-position: 0 -598px; width: 16px; height: 16px; } 
+.icon.ico-settings-multi{ background-position: 0 -624px; width: 16px; height: 16px; } 
+.icon.ico-settings{ background-position: 0 -650px; width: 16px; height: 16px; } 
+.icon.ico-trash{ background-position: 0 -676px; width: 16px; height: 16px; } 
+.icon.ico-user{ background-position: 0 -702px; width: 16px; height: 16px; } 
+.icon.ico-users{ background-position: 0 -728px; width: 16px; height: 16px; } 
+
+
 a { color:#FF6303; text-decoration:none; }
 
 a:hover { text-decoration:underline; }
