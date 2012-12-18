@@ -8,9 +8,9 @@
 <?php foreach($types as $taskType) : ?>
 <div>
     <?php 
-        $linkEdit = CHtml::link('', array('/taskType/edit', 'id' => $taskType->id), array('class' => 'icon ico-settings')); 
-        $linkDelete = CHtml::link('', array('/taskType/delete', 'id' => $taskType->id), array( 'class' => 'icon ico-delete', 'confirm' => 'Are you sure?')); 
-        $linkAdd = CHtml::link('', array('/typeAttribute/add', 'id' => $taskType->id), array('class' => 'icon ico-round-plus', 'alt' => 'Add attribute')); 
+        $linkEdit = CHtml::link('', array(Yii::app()->createUrl('/taskType/edit'), 'id' => $taskType->id), array('class' => 'icon ico-settings')); 
+        $linkDelete = CHtml::link('', array(Yii::app()->createUrl('/taskType/delete'), 'id' => $taskType->id), array( 'class' => 'icon ico-delete', 'confirm' => 'Are you sure?')); 
+        $linkAdd = CHtml::link('', array(Yii::app()->createUrl('/typeAttribute/add'), 'id' => $taskType->id), array('class' => 'icon ico-round-plus', 'alt' => 'Add attribute')); 
 
         $taskName = CHtml::tag('td', array(), $taskType->name);
         $taskMenu = CHtml::tag('td', array(), $linkEdit . $linkDelete . $linkAdd);
@@ -25,7 +25,9 @@
     <?php
         $linkDelete = CHtml::link('', array('/typeAttribute/delete', 'id' => $typeAttr->id), array( 'confirm' => 'Are you sure?', 'class' => 'icon ico-delete')); 
         $linkEdit = CHtml::link('', array('/typeAttribute/edit', 'id' => $typeAttr->id), array('class' => 'icon ico-settings')); 
-        echo CHtml::tag('div', array('style' => 'padding-left:10px;'), $typeAttr->name . ' (' . $typeAttr->description . ') ' . $linkDelete . ' ' . $linkEdit);
+        $desc = CHtml::tag('div', array('style' => 'padding-left:10px;'), $typeAttr->name . ' (' . $typeAttr->description . ') ' . $linkDelete . ' ' . $linkEdit);
+        $td = CHtml::tag('td', array(), $desc);
+        $tt .= CHtml::tag('tr', array(), $td);
     ?>
     <?php endforeach; ?>
 </div>
