@@ -17,6 +17,7 @@
             'application.forms.*',
             'application.components.*',
             'application.components.helpers.*',
+            'application.extensions.AlkCalendar.*',
         ),
         'modules'=>array(
             'gii'=>array(
@@ -87,6 +88,8 @@
                     'menu.task-add' => '/task/add', 
                     'menu.types' => '/taskType',
                     'menu.type-add' => '/taskType/add',
+
+                    'menu.calendar' => '/calendar',
                 ),
             ),
         ),
