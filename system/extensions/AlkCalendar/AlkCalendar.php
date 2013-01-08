@@ -13,6 +13,8 @@
             $cs->registerCssFile(
                 Yii::app()->assetManager->publish($assetDir.'/AlkCalendar.css')
             );
+            $cs->registerCoreScript('jquery');
+            $cs->registerCoreScript('jquery.ui');
 
             $tasks = User::model()->findByPk(Yii::app()->user->id)->tasks;
 
