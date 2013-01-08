@@ -2,6 +2,9 @@
 .day-view-row:nth-child(odd) {background-color:#AAAAAA; }
 .day-view-row:hover {background-color:#FF6303; color:#EFEFEF; cursor:pointer;}
 .day-view-hour { display:inline; border-right: 2px solid #666666; padding: 6px 5px; }
-.day-view-tasks { display:inline; padding: 6px 5px; }
+.day-view-tasks { display:inline; padding: 6px 5px; overflow:show;}
 .title-day { font-size:120%; font-weight:bold; display:inline;}
-.task-box { display:inline; border-right: 2px solid #666666; padding: 6px 5px; }
+.task-box { background-color:black; color:white;  }
+.hour-row { background-color: #888888; height:4.161616%; margin-left: -40px; }
+.hour-row:nth-child(odd) { background-color:#AAAAAA; }
+.tasks-container { position:relative; width:600px; height:800px; background-color:yellow; }
