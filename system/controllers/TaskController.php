@@ -41,7 +41,7 @@
                      $taskAttribute->value = $_POST['specific'][$typeAttribute->name];
                      $taskAttribute->save();
                   }
-                  $this->redirect('/task');
+                  $this->redirect(Yii::app()->createUrl('/task'));
                } else {
                   Yii::app()->user->setFlash('notice', 'error.forms.cant-save');
                }
