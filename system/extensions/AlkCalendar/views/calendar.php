@@ -31,12 +31,11 @@ foreach($preparedTasks as $taskData) {
         'data-duration' => $taskData->durationInMinutes,
         'data-start' => $taskData->startAfterMidnightInMinutes,
         'data-end' => $taskData->stopAfterMidnightInMinutes,
-        'data-tab' => $i++,
-        'data-columns' => 3,
         'class' => 'task-box',
         'style' => ''
     );
-    $allTasks .= CHtml::tag('div', $taskParameters, $taskData->task->name . ' ' . $taskData->task->begin);
+    $begin = date("H:i", strtotime($taskData->task->begin));
+    $allTasks .= CHtml::tag('div', $taskParameters, $begin . ': ' . $taskData->task->name);
 }
     $container = CHtml::tag('div', array('class' => 'tasks-container'), $hoursHtml . $allTasks);
     echo $container;
