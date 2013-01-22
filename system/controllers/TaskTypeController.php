@@ -24,7 +24,7 @@
                 if($form->validate()) {
                     $type->attributes = $_POST[$formName];
                     if($type->save()) {
-                        $this->redirect('/taskType');
+                       $this->redirect(Yii::app()->createUrl('/taskType'));
                     } else {
                         Yii::app()->user->setFlash('notice', 'error.forms.cant-save');
                     }
@@ -52,7 +52,7 @@
                     $type = new TaskType();
                     $type->attributes = $_POST[$formName];
                     if($type->save()) {
-                        $this->redirect('/taskType');
+                       $this->redirect(Yii::app()->createUrl('/taskType'));
                     } else {
                         Yii::app()->user->setFlash('notice', 'error.forms.cant-save');
                     }
@@ -71,7 +71,7 @@
                 $ta->delete();
             }
             if($type->delete()) {
-                $this->redirect('/taskType');
+                 $this->redirect(Yii::app()->createUrl('/taskType'));
             } else {
                 Yii::app()->user->setFlash('notice', 'error.forms.cant-save');
             }

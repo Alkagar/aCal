@@ -65,7 +65,7 @@
       public function removeTask()
       {
          $criteria = new CDbCriteria();
-         $criteria->add('task_id' => $this->id);
+         $criteria->addColumnCondition(array('task_id' => $this->id,));
          TaskAttribute::model()->deleteAll($criteria);
          return $this->delete();
       }
