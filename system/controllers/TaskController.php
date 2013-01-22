@@ -58,6 +58,17 @@
             ));
         }
 
+        public function actionDelete($id)
+        {
+            $task = Task::model()->findByPk($id);
+            if($task->removeTask()) {
+                $this->redirect('/task');
+            } else {
+                Yii::app()->user->setFlash('notice', 'error.forms.cant-save');
+            }
+            $this->render('delete', array());
+        }
+
         public function actionGetFormSpecificTypes()
         {
             $form = new FormTask();
