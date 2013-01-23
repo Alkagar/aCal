@@ -1,73 +1,79 @@
 $(document).ready(function() {
     function taskFitToColumn(column, task) {
-        var start = task.attr('data-start');
-        var end = task.attr('data-end');
-        for(i in column) {
-            var eTask = column[i];
-            var eStart = eTask.attr('data-start');
-            var eEnd = eTask.attr('data-end');
+        var start = task.attr('data-start') * 1;
+        var end = task.attr('data-end') * 1;
+        var returnValue = true;
+        column.forEach(function(value, index, array) {
+            var eTask = value;
+            var eStart = eTask.attr('data-start') * 1;
+            var eEnd = eTask.attr('data-end') * 1;
             if(start >= eStart && end <= eEnd) {
-                return false;
+                returnValue = returnValue && false;
             }
             if(start <= eStart && end >= eEnd) {
-                return false;
+                returnValue = returnValue && false;
             }
             if(start <= eStart && end >= eStart && end <= eEnd) {
-                return false;
+                returnValue = returnValue && false;
             }
             if(start >= eStart && start <= eEnd && end >= eEnd) {
-                return false;
+                returnValue = returnValue && false;
             }
-        }
-        return true;
+        });
+        return returnValue;
     }
     var color = 100;
-    var columns = new Array();
+    var columns = [];
     var tasks = [];
+    console.log($('.task-box').length);
+    var counter = 1;
     $('.task-box').each(function() {
+        console.log('## counter: ', counter++);
+        console.log(columns);
         var task = $(this);
         var start = task.attr('data-start');
         var end = task.attr('data-end');
         if(columns.length == 0) {
-            columns.push([task]);
+            var column = [];
+            column.push(task);
+            columns.push(column);
         } else {
-            var putIntoExistingColumns = false;
-            for(i in columns) {
-                if(taskFitToColumn(columns[i], task)) {
-                    columns[i].push(task);
-                    putIntoExistingColumns = true;
-                    break;
+            var used = false;
+            columns.forEach(function(value, index, array) {
+                if(taskFitToColumn(value, task)) {
+                    console.log('d');
+                    value.push(task);
+                    used = true;
                 }
-            }
-            if(!putIntoExistingColumns) {
-                columns.push([task]);
+            });
+            if(!used) {
+                var column = [];
+                column.push(task);
+                columns.push(column);
             }
         }
     });
 
     for(i in columns) {
         for(x in columns[i]) {
-            var padding = 0;
-            var margin = 0;
+            var margin = 1;
+            var padding = 2;
 
             var task = columns[i][x];
             var height = task.attr('data-duration') * 0.0694444;
             var topPosition = task.attr('data-start') * 0.0694444;
-            var width = (100 / columns.length) - (margin) - (2 * padding);
-            var left = i * width + (margin * i + margin);
-            //var c = color % 250;
+            var width = (100 / columns.length) - (2 * margin);
+            var left = i * width + margin + (i * margin * 2);
             task.css({
-                //'background-color' : 'rgb(' + c + ', ' + c + ', ' + c + ')',
                 'position' : 'absolute',
-                'padding' : padding + '%',
                 'top' : topPosition + '%',
                 'height' : height + '%',
                 'width' : width + '%',
                 'left' : left + '%',
             });   
-            //color += 100;
+            task.children().css({
+            'margin' : padding + 'px'
+            });
         }
     }
-    $('.task-box').each(function() {
-    });
 });
