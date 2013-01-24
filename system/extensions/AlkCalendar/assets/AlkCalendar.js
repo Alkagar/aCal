@@ -1,12 +1,22 @@
 $(document).ready(function() {
+    $.fn.hasOverflow = function() {
+        $(this).css({ overflow: "auto", display: "table" });
+        var h1 = $(this).outerHeight();
+
+        $(this).css({ overflow: "hidden", display: "block" });
+        var h2 = $(this).outerHeight();
+
+        return (h1 > h2) ? true : false;
+    };
     function taskFitToColumn(column, task) {
-        var start = task.attr('data-start') * 1;
-        var end = task.attr('data-end') * 1;
+        var factor = 0.0694444;
+        var start = task.attr('data-start') * factor;
+        var end = task.attr('data-end') * factor;
         var returnValue = true;
         column.forEach(function(value, index, array) {
             var eTask = value;
-            var eStart = eTask.attr('data-start') * 1;
-            var eEnd = eTask.attr('data-end') * 1;
+            var eStart = eTask.attr('data-start') * factor;
+            var eEnd = eTask.attr('data-end') * factor;
             if(start >= eStart && end <= eEnd) {
                 returnValue = returnValue && false;
             }
@@ -68,11 +78,16 @@ $(document).ready(function() {
                 'position' : 'absolute',
                 'top' : topPosition + '%',
                 'height' : height + '%',
+                'min-height': '2em',
                 'width' : width + '%',
                 'left' : left + '%',
             });   
+            if(task.hasOverflow()) {
+                task.find('.task-description').remove();
+            }
             task.children().css({
-            'margin' : padding + 'px'
+                'margin-left' : padding + 'px',
+                'margin-right' : padding + 'px'
             });
         }
     }
